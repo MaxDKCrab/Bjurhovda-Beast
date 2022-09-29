@@ -4988,6 +4988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6104981481195695178}
   - component: {fileID: 7252611349681015431}
+  - component: {fileID: 8522438908180632007}
   m_Layer: 0
   m_Name: SlugRat
   m_TagString: Untagged
@@ -5029,6 +5030,20 @@ CapsuleCollider:
   m_Height: 4.77
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8522438908180632007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960445724550777919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebbad67df90a304ab25c4a1aa620e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRange: 12
+  speed: 10
 --- !u!1 &8937822418614933670
 GameObject:
   m_ObjectHideFlags: 0
