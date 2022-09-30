@@ -631,6 +631,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a275b018a1e22ce49b9a9dd7d26f8f02, type: 3}
   m_PrefabInstance: {fileID: 676467678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &124038626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7960445724550777919, guid: 6e681ffd3c65db549877a2cfc9363833, type: 3}
+  m_PrefabInstance: {fileID: 1417967192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &139702674
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,7 +6081,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 303387027}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691697083}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: Answer1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &303387027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7566,7 +7583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &707162872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8746,6 +8763,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6104981481195695178, guid: 6e681ffd3c65db549877a2cfc9363833, type: 3}
   m_PrefabInstance: {fileID: 1417967192}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1083371108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124038626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014af326f3807a645a49d18eceade219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRange: 100
+  choiceDialogue: {fileID: 11400000, guid: 25c5fc453c4984f47a95eaa6eaa18c38, type: 2}
+--- !u!65 &1083371109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124038626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1101104115
 GameObject:
   m_ObjectHideFlags: 0
@@ -14522,7 +14566,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343208154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691697083}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: Answer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1343208154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16853,6 +16909,7 @@ GameObject:
   - component: {fileID: 1934928575}
   - component: {fileID: 1934928577}
   - component: {fileID: 1934928576}
+  - component: {fileID: 1934928578}
   m_Layer: 0
   m_Name: "SluggMiniK\xF6ppizza"
   m_TagString: Untagged
@@ -16889,7 +16946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRange: 100
-  choiceDialogue: {fileID: 0}
+  choiceDialogue: {fileID: 11400000, guid: b3cbc1856bc8d6e489405873867578ac, type: 2}
 --- !u!136 &1934928577
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16904,6 +16961,19 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: -0.33, y: 0.96, z: 0.06}
+--- !u!65 &1934928578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934928574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: -0.33, y: 0.96, z: 0}
 --- !u!1 &1943997734
 GameObject:
   m_ObjectHideFlags: 0
@@ -17140,7 +17210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2021108128
 RectTransform:
   m_ObjectHideFlags: 0
