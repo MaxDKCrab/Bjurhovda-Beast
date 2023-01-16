@@ -6,6 +6,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Character", menuName = "Character Object")]
 public class Characters : ScriptableObject
 {
-    public string name;
+    public string charName;
     public Sprite icon;
 }

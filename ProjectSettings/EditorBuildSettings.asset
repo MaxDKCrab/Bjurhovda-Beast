@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LunchMeny.unity
     guid: 2479650a60e60ff4892c709feb680275
+  - enabled: 1
+    path: Assets/Scenes/CombatTestScene.unity
+    guid: ddff2ff2660c14c439ae5d49ff81fad1
   m_configObjects: {}

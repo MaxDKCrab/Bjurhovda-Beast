@@ -7,6 +7,20 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    #region Singleton
+
+    public static DialogueManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    #endregion
+    
+    
+    
+    
     private ChoiceDialogue choiceDialogue;
     public GameObject dialogueUI;
     public TextMeshProUGUI nameText;
@@ -15,8 +29,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI answer2Text;
     public GameObject choices;
     public Image charIcon;
-    public MouseLook mouseLook;
-    // public InteractionManager interact;
     // public GameObject choiceText;
     // public GameObject continueText;
     
@@ -41,13 +53,14 @@ public class DialogueManager : MonoBehaviour
         choiceDialogue.isDialogueFinished = false;
         
         isTalking = true;
-
-        // interact.HideInteractMessage();
+        
         dialogueUI.SetActive(true);
         
         answer1Text.text = choiceDialogue.answer1;
         answer2Text.text = choiceDialogue.answer2;
         DisplayNextSentenceChoice();
+        PlayerManager.instance.GamePause(true);
+
     }
 
     public void StartReturnMessageDialogue(ChoiceDialogue choice)
@@ -55,9 +68,10 @@ public class DialogueManager : MonoBehaviour
         
         choiceDialogue = choice;
         isTalking = true;
-        // interact.HideInteractMessage();
         dialogueUI.SetActive(true);
         DisplayReturnMessage();
+        PlayerManager.instance.GamePause(true);
+
     }
     
 
@@ -89,19 +103,19 @@ public class DialogueManager : MonoBehaviour
         
         if (answerNum == 1)
         {
-            nameText.text = choiceDialogue.linesBranch1[dialogueTracker].character.name;
+            nameText.text = choiceDialogue.linesBranch1[dialogueTracker].character.charName;
             SetPortraitLineArray(choiceDialogue.linesBranch1);
             sentence = choiceDialogue.linesBranch1[dialogueTracker].text;
         }
         else if (answerNum == 2)
         {
-            nameText.text = choiceDialogue.linesBranch2[dialogueTracker].character.name;
+            nameText.text = choiceDialogue.linesBranch2[dialogueTracker].character.charName;
             SetPortraitLineArray(choiceDialogue.linesBranch2);
             sentence = choiceDialogue.linesBranch2[dialogueTracker].text;
         }
         else
         {
-            nameText.text = choiceDialogue.linesInitial[dialogueTracker].character.name;
+            nameText.text = choiceDialogue.linesInitial[dialogueTracker].character.charName;
             SetPortraitChoiceArray(choiceDialogue.linesInitial);
             sentence = choiceDialogue.linesInitial[dialogueTracker].text;
         }
@@ -114,7 +128,6 @@ public class DialogueManager : MonoBehaviour
             inChoice = true;
             choices.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            mouseLook.enabled = false;
         }
         dialogueTracker++;
         
@@ -129,7 +142,6 @@ public class DialogueManager : MonoBehaviour
         inChoice = false;
         choices.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-        mouseLook.enabled = true;
         DisplayNextSentenceChoice();
     }
     public void Answer2()
@@ -141,7 +153,6 @@ public class DialogueManager : MonoBehaviour
         inChoice = false;
         choices.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-        mouseLook.enabled = true;
         DisplayNextSentenceChoice();
     }
     
@@ -156,7 +167,7 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence;
         
-        nameText.text = choiceDialogue.onReturnDialogue.character.name;
+        nameText.text = choiceDialogue.onReturnDialogue.character.charName;
         SetPortraitLine(choiceDialogue.onReturnDialogue);
         sentence = choiceDialogue.onReturnDialogue.text;
         
@@ -191,20 +202,6 @@ public class DialogueManager : MonoBehaviour
         charIcon.sprite = choiceBranch[dialogueTracker].character.icon;
     }
     
-    public void CancelDialogue()
-    {
-        isTalking = false;
-        dialogueUI.SetActive(false);
-        dialogueTracker = 0;
-        answerNum = 0;
-        inChoice = false;
-        choices.SetActive(false);
-        if (Cursor.lockState == CursorLockMode.None)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            mouseLook.enabled = true;
-        }
-    }
     
     public void EndDialogue()
     {
@@ -214,5 +211,6 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
         dialogueTracker = 0;
         choiceDialogue.talking = false;
+        PlayerManager.instance.GamePause(false);
     }
 }

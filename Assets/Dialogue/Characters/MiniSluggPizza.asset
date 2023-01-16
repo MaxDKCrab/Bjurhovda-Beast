@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f81f5bf9d51d9c4eab8974294f1170d, type: 3}
   m_Name: MiniSluggPizza
   m_EditorClassIdentifier: 
-  name: MiniSlugPizza
+  charName: MiniSluggPizza
   icon: {fileID: 21300000, guid: 98399de44bb97974fb77f4f944e3e8c6, type: 3}

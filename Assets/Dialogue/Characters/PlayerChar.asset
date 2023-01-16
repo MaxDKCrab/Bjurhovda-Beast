@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f81f5bf9d51d9c4eab8974294f1170d, type: 3}
   m_Name: PlayerChar
   m_EditorClassIdentifier: 
-  name: Y/N
+  charName: You
   icon: {fileID: 21300000, guid: 8521dc2a4e7ef59439c73d77697c9fea, type: 3}

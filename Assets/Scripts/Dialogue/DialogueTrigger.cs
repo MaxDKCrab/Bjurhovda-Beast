@@ -3,63 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : Interactable
 {
-    public float dialogueRange = 100f;
     private DialogueManager dialogueManager;
+    private GamePauseInput pauseInput;
     public ChoiceDialogue choiceDialogue;
-    private float distance;
-    private GameObject player;
-    // private InteractionManager interact;
-    // public string interactMessage;
     private bool withinRange;
 
     void Start()
     {
-        // interact = FindObjectOfType<InteractionManager>();
-        player = FindObjectOfType<Movement>().gameObject;
         choiceDialogue.isDialogueFinished = false;
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueManager = DialogueManager.instance;
+        pauseInput = GamePauseInput.instance;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void Interact()
     {
-        // interact.ShowInteractMessage(interactMessage);
-        withinRange = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // interact.HideInteractMessage();
-        withinRange = false;
-        if (dialogueManager.isTalking && choiceDialogue.talking)
+        if (!dialogueManager.isTalking && !choiceDialogue.isDialogueFinished)
         {
-            dialogueManager.CancelDialogue();
-            choiceDialogue.talking = false;
+            dialogueManager.StartDialogue(choiceDialogue);
+            choiceDialogue.talking = true;
+        }
+        else if (!dialogueManager.isTalking && choiceDialogue.isDialogueFinished)
+        {
+            dialogueManager.StartReturnMessageDialogue(choiceDialogue);
+            choiceDialogue.talking = true;
         }
     }
 
     private void Update()
     {
-        if (!withinRange)
+
+        if (pauseInput.pauseActions.ContDialogue.triggered)
         {
-            return;
-        }
-        distance = Vector3.Distance(player.transform.position, transform.position);
-        
-        if (distance <= dialogueRange && Input.GetKeyDown(KeyCode.E))
-        {
-            if (!dialogueManager.isTalking && !choiceDialogue.isDialogueFinished)
-            {
-                dialogueManager.StartDialogue(choiceDialogue);
-                choiceDialogue.talking = true;
-            }
-            else if (!dialogueManager.isTalking && choiceDialogue.isDialogueFinished)
-            {
-                dialogueManager.StartReturnMessageDialogue(choiceDialogue);
-                choiceDialogue.talking = true;
-            }
-            else if (dialogueManager.isTalking)
+            if (dialogueManager.isTalking)
             {
                 if (!dialogueManager.inChoice && choiceDialogue.isDialogueFinished)
                 {
