@@ -11,18 +11,18 @@ public class ChaseState : BaseState
         playHP = PlayerManager.instance.player.GetComponent<PlayerHealth>();
         playerTransform = playHP.transform;
         
-        enemy.ChangeAgentSpeed(enemy.chaseSpeed,enemy.chaseAngSpeed,enemy.chaseAccel,enemy.chaseStopDist);
-        if (enemy.anim != null)
+        NPC.ChangeAgentSpeed(NPC.chaseSpeed,NPC.chaseAngSpeed,NPC.chaseAccel,NPC.chaseStopDist);
+        if (NPC.anim != null)
         {
-            enemy.anim.speed = 2;
+            NPC.anim.speed = 2;
         }
     }
   
     public override void Perform()
     {
-        float distanceFromStart = Vector3.Distance(playerTransform.position, enemy.defaultPos);
+        float distanceFromStart = Vector3.Distance(playerTransform.position, NPC.defaultPos);
         
-        if (distanceFromStart >= enemy.maxAggroRange)
+        if (distanceFromStart >= NPC.maxAggroRange)
         {
             StateMachine.ChangeState(StateMachine.patrolState);
         }
@@ -44,7 +44,7 @@ public class ChaseState : BaseState
 
     public void ChasePlayer()
     {
-        enemy.Agent.SetDestination(playerTransform.position);
+        NPC.Agent.SetDestination(playerTransform.position);
     }
 
     // private void FacePlayer()

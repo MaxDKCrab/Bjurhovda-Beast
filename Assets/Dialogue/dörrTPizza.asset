@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d8fd20c8a57fa4497c283bb707b101, type: 3}
+  m_Name: "d\xF6rrTPizza"
+  m_EditorClassIdentifier: 
+  linesInitial:
+  - character: {fileID: 11400000, guid: 0f92b254c18e89d4f8209521bc6b59e2, type: 2}
+    text: "Klockfan \xE4r inte 15-17 \xE4n"
+    isChoiceTrigger: 0
+  answer1: 
+  linesBranch1: []
+  answer2: 
+  linesBranch2: []
+  onReturnDialogue:
+    character: {fileID: 11400000, guid: 0f92b254c18e89d4f8209521bc6b59e2, type: 2}
+    text: "Klockfan \xE4r inte 15-17 \xE4n"
+  isDialogueFinished: 0
+  talking: 0

@@ -39,5 +39,5 @@ MonoBehaviour:
   onReturnDialogue:
     character: {fileID: 11400000, guid: d4e11b0af7abefc44b1ceaaae1e20ea5, type: 2}
     text: '*han nurglar ut, det stinker*'
-  isDialogueFinished: 1
+  isDialogueFinished: 0
   talking: 0

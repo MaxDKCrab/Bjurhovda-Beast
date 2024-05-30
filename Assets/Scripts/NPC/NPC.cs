@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class NPC : MonoBehaviour
 {
+    public bool enemy;
+
+
 
     private StateMachine stateMachine;
     private NavMeshAgent agent;
@@ -74,19 +77,23 @@ public class Enemy : MonoBehaviour
             anim.SetFloat(Speed,agent.velocity.magnitude);
         }
 
-        distanceToPlayer = Vector3.Distance(playerPos.position, transform.position);
-
-        if (distanceToPlayer <= initialAggroRange)
+        if (enemy)
         {
-            stateMachine.ChangeState(stateMachine.chaseState);
+            distanceToPlayer = Vector3.Distance(playerPos.position, transform.position);
+
+            if (distanceToPlayer <= initialAggroRange)
+            {
+                stateMachine.ChangeState(stateMachine.chaseState);
+            }
         }
-        
     }
 
 
     //Aggro range debug
     private void OnDrawGizmosSelected()
     {
+
+        if (!enemy) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position,initialAggroRange);
         Gizmos.color = Color.yellow;

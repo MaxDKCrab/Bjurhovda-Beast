@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -17,11 +18,11 @@ public class DialogueManager : MonoBehaviour
     }
 
     #endregion
+
+    private DialogueEventManager diaEventManager;
     
     
-    
-    
-    private ChoiceDialogue choiceDialogue;
+    public ChoiceDialogue choiceDialogue;
     public GameObject dialogueUI;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI speechText;
@@ -31,11 +32,12 @@ public class DialogueManager : MonoBehaviour
     public Image charIcon;
     // public GameObject choiceText;
     // public GameObject continueText;
-    
-    private int dialogueTracker;
+    private GamePauseInput pauseInput;
+
+    public int dialogueTracker;
     [HideInInspector] public bool inChoice;
     [HideInInspector] public bool isTalking;
-    private int answerNum = 0;
+    public int answerNum = 0;
     private bool isInMessage;
 
     public float timeBetweenLetters;
@@ -45,6 +47,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueTracker = 0; 
         dialogueUI.SetActive(false);
+        pauseInput = GamePauseInput.instance;
+        diaEventManager = GetComponent<DialogueEventManager>();
     }
 
     public void StartDialogue(ChoiceDialogue choiceDia)
@@ -85,6 +89,8 @@ public class DialogueManager : MonoBehaviour
         
         if (answerNum == 1 && dialogueTracker >= choiceDialogue.linesBranch1.Length)
         {
+            Debug.Log(dialogueTracker);
+            Debug.Log(choiceDialogue.linesBranch1.Length);
             EndDialogue();
             return;
         }
@@ -201,8 +207,25 @@ public class DialogueManager : MonoBehaviour
     {
         charIcon.sprite = choiceBranch[dialogueTracker].character.icon;
     }
-    
-    
+
+    private void Update()
+    {
+        if (pauseInput.pauseActions.ContDialogue.triggered)
+        {
+            if (isTalking)
+            {
+                if (!inChoice && choiceDialogue.isDialogueFinished)
+                {
+                    DisplayReturnMessage();
+                }
+                else if (!inChoice && !choiceDialogue.isDialogueFinished)
+                {
+                    DisplayNextSentenceChoice();
+                }
+            }
+        }
+    }
+
     public void EndDialogue()
     {
         choiceDialogue.isDialogueFinished = true;
@@ -212,5 +235,6 @@ public class DialogueManager : MonoBehaviour
         dialogueTracker = 0;
         choiceDialogue.talking = false;
         PlayerManager.instance.GamePause(false);
+        diaEventManager.dialogueEndEventTriggered?.Invoke();
     }
 }

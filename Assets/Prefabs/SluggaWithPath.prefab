@@ -284,18 +284,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6946519716109074936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ff5e12b1731af4d987483aa9c97272, type: 3}
+  m_Script: {fileID: 11500000, guid: 59840d434461dab42934a608d4a25f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: 1
   defaultPos: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   distanceToPlayer: 0
-  initialAggroRange: 20
-  maxAggroRange: 50
-  chaseSpeed: 10
-  chaseAngSpeed: 120
-  chaseAccel: 30
-  chaseStopDist: 4
+  initialAggroRange: 0
+  maxAggroRange: 0
+  chaseSpeed: 0
+  chaseAngSpeed: 0
+  chaseAccel: 0
+  chaseStopDist: 0
   pathing: {fileID: 3512510364086806065}
 --- !u!114 &7593620087989114592
 MonoBehaviour:
@@ -311,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHP: 50
   deathPrefab: {fileID: 8173332010117508810, guid: ec4e424750f15d84dacd7eb7e8809f8f, type: 3}
+  hitParticle: {fileID: 0}
 --- !u!114 &33342192124552874
 MonoBehaviour:
   m_ObjectHideFlags: 0

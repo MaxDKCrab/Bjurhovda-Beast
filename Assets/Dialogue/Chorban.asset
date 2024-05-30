@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d8fd20c8a57fa4497c283bb707b101, type: 3}
+  m_Name: Chorban
+  m_EditorClassIdentifier: 
+  linesInitial:
+  - character: {fileID: 11400000, guid: e160fc2510d409543ae4bd6bebf90b60, type: 2}
+    text: "ber\xE4tta inte f\xF6r jonas men jag har en m\xF6rk hemlighet"
+    isChoiceTrigger: 0
+  - character: {fileID: 11400000, guid: e160fc2510d409543ae4bd6bebf90b60, type: 2}
+    text: "Vad\xE5 du vill veta eller?"
+    isChoiceTrigger: 0
+  - character: {fileID: 11400000, guid: e160fc2510d409543ae4bd6bebf90b60, type: 2}
+    text: "Jag har en g\xF6md skatt v\xE4rt mycket g\xF6md bakom mig"
+    isChoiceTrigger: 0
+  answer1: 
+  linesBranch1: []
+  answer2: 
+  linesBranch2: []
+  onReturnDialogue:
+    character: {fileID: 11400000, guid: e160fc2510d409543ae4bd6bebf90b60, type: 2}
+    text: Hoppas ingen baxar min skatt
+  isDialogueFinished: 0
+  talking: 0

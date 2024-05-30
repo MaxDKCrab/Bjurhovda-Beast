@@ -1,6 +1,10 @@
+
+
+
+[System.Serializable]
 public abstract class BaseState
 {
-    public Enemy enemy;
+    public NPC NPC;
     public StateMachine StateMachine;
     
     public abstract void Enter();

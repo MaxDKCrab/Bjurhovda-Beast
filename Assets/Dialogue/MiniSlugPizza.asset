@@ -26,8 +26,6 @@ MonoBehaviour:
     text: "H\xF6rt att dom s\xE4ljer m\xF6rtizza, Tar man chansen?"
   - character: {fileID: 11400000, guid: c800f3537aa53a04ebae13343731adf9, type: 2}
     text: "Barn pizza kostar 60BC Med l\xE4sk!!!!111!!!"
-  - character: {fileID: 11400000, guid: c800f3537aa53a04ebae13343731adf9, type: 2}
-    text: end
   answer2: Nej
   linesBranch2:
   - character: {fileID: 11400000, guid: 0f92b254c18e89d4f8209521bc6b59e2, type: 2}
@@ -35,10 +33,8 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: c800f3537aa53a04ebae13343731adf9, type: 2}
     text: "K\xE4ften rasmus, Jag e inte h\xE4r f\xF6r o br\xE5ka. JAg k\xF6pa barnpizza
       60BC me l\xE4sk"
-  - character: {fileID: 11400000, guid: c800f3537aa53a04ebae13343731adf9, type: 2}
-    text: end
   onReturnDialogue:
     character: {fileID: 11400000, guid: c800f3537aa53a04ebae13343731adf9, type: 2}
     text: PIZZA!!!!!
   isDialogueFinished: 0
-  talking: 1
+  talking: 0

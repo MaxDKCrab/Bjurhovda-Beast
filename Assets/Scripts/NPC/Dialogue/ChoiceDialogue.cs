@@ -7,11 +7,11 @@ using UnityEngine.TextCore.Text;
 [CreateAssetMenu(fileName = "New Choice Dialogue", menuName = "Choice Dialogue Object")]
 public class ChoiceDialogue : ScriptableObject
 {
-    [NonReorderable] public ChoiceLine[] linesInitial;
+    public ChoiceLine[] linesInitial;
     public string answer1;
-    [NonReorderable] public Line[] linesBranch1;
+    public Line[] linesBranch1;
     public string answer2;
-    [NonReorderable] public Line[] linesBranch2;
+    public Line[] linesBranch2;
     public Line onReturnDialogue;
     [HideInInspector] public bool isDialogueFinished;
     [HideInInspector] public bool talking;

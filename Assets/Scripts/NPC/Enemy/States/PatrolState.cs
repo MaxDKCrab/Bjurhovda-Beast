@@ -9,12 +9,12 @@ public class PatrolState : BaseState
   public float waitTimer;
   public override void Enter()
   {
-    enemy.ResetAgentSpeed();
-    if (enemy.anim != null)
+    NPC.ResetAgentSpeed();
+    if (NPC.anim != null)
     {
-      enemy.anim.speed = 1;
+      NPC.anim.speed = 1;
     }
-    enemy.Agent.SetDestination(enemy.pathing.waypoints[waypointIndex].position);
+    NPC.Agent.SetDestination(NPC.pathing.waypoints[waypointIndex].position);
   }
   
   public override void Perform()
@@ -29,10 +29,10 @@ public class PatrolState : BaseState
 
   public void PatrolCycle()
   {
-    if (enemy.Agent.remainingDistance < 0.2f)
+    if (NPC.Agent.remainingDistance < 0.2f)
     {
       
-        if (waypointIndex < enemy.pathing.waypoints.Count -1)
+        if (waypointIndex < NPC.pathing.waypoints.Count -1)
         {
           waypointIndex++;
         }
@@ -41,7 +41,7 @@ public class PatrolState : BaseState
           waypointIndex = 0;
         }
 
-        enemy.Agent.SetDestination(enemy.pathing.waypoints[waypointIndex].position);
+        NPC.Agent.SetDestination(NPC.pathing.waypoints[waypointIndex].position);
     }
   }
 }

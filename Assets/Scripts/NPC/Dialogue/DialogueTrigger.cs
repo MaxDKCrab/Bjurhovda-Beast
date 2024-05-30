@@ -34,20 +34,7 @@ public class DialogueTrigger : Interactable
     private void Update()
     {
 
-        if (pauseInput.pauseActions.ContDialogue.triggered)
-        {
-            if (dialogueManager.isTalking)
-            {
-                if (!dialogueManager.inChoice && choiceDialogue.isDialogueFinished)
-                {
-                    dialogueManager.DisplayReturnMessage();
-                }
-                else if (!dialogueManager.inChoice && !choiceDialogue.isDialogueFinished)
-                {
-                    dialogueManager.DisplayNextSentenceChoice();
-                }
-            }
-        }
+        
         
     }
     
